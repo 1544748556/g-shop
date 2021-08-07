@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" type="image/ico" href="./images/logo.png">
+    <title>天知道</title>
+    <link rel="stylesheet" href="index.css">
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <div class="search"><input v-model='city' @keyup.enter="search" type="search" placeholder=" 请输入城市...">
+            <button @click='search'>搜索城市</button>
+            <div class="hot">
+                <a href="javascript:;" @click="changeCity('北京')">北京</a>
+                <a href="javascript:;" @click="changeCity('上海')">上海</a>
+                <a href="javascript:;" @click="changeCity('广州')">广州</a>
+                <a href="javascript:;" @click="changeCity('深圳')">深圳</a>
+            </div>
+        </div>
+        <div class="details">
+            <div class="tianqi" v-for="item in weatherList">
+                <div class="juti">{{item.type}}</div>
+                <div class="wendu">{{item.low}}~{{item.high}}</div>
+                <div class="date">{{item.date}}</div>
+                <div class="date">{{item.fengxiang}}</div>
+                <div class="date">{{item.fengli}}</div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="./index.js"></script>
+
+</html>

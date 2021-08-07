@@ -1,0 +1,87 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+body{
+        background: url(./images/bgc.jpg);
+        background-repeat: no-repeat;
+        background-size:cover;
+}
+#app{
+    width: 100vw;
+
+}
+[v-cloak]{
+    display: none;
+}
+.search{
+    background-image: url(./images/tianzhidao.png);
+    background-position: 200px 40px;
+    background-repeat: no-repeat;
+    position: relative;
+    width: 50vw;
+    height: 30vh;
+    margin: auto;
+    margin-top: 200px;
+}
+.search input{
+    width: 90%;
+    height: 5vh;
+    font-size: 16px;
+    position: absolute;
+    bottom: 25px;
+}
+.search button{
+    color: white;
+    width: 10%;
+    position: absolute;
+    bottom: 25px;
+    right: 0;
+    height: 5vh;
+    background-color: #0076a4;
+    border: 1px solid #0076a4;
+    box-shadow: 1px 1px #0076a4;
+    border-radius: 1px;
+}
+.search button:hover{
+    padding-left: 3px;
+}
+.search .hot{
+    position: absolute;
+    bottom: 0;
+    left: -15px;
+}
+.search .hot a{
+    color: #dd6400;
+    text-decoration: none;
+    margin-left: 15px;
+}
+.search .hot a:hover{
+    color: #dd6400;
+}
+.details{
+    width: 50vw;
+    margin: auto;
+    display: flex;
+    flex-wrap: nowrap;
+    margin-top: 50px;
+}
+.details .tianqi {padding: 5px;
+    text-align: center;
+    width: 19%;
+    border-right: 1px solid #a34f4f;
+}
+.details .tianqi .juti{
+    color: #dd6400;
+    font-size: 1.5625rem;
+    margin-bottom: 10px;
+}
+.details .tianqi .wendu{
+    font-size: .875rem;
+    color: #dd6400;
+    margin-bottom: 10px;
+}
+.details .tianqi .data{
+    font-size: .7125rem;
+    color: rgb(129, 34, 34);
+}
