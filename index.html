@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./images/logo.png" type="image/x-icon">
+    <link rel="stylesheet" href="./index.css">
+    <title>音乐动听</title>
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <div class="header">
+            <div class="logo"><a href="index.html"><img src="./images/bgc.png" alt="logo"></a></div>
+            <div class="search">
+                <input v-model="query" @keyup.enter="searchmusic " type="text" placeholder="音乐/视频">
+                <button @click="searchmusic">搜索</button>
+                <!-- <div class="history">
+                    <ul>
+                        <li v-for="(item,index) in historyList" @click="searchmusic" :key="index">
+                            <p>{{item.name}}</p>
+                            <img class="delete" src="./images/delete.png" alt="">
+                        </li>
+                    </ul>
+                </div> -->
+            </div>
+        </div>
+        <div class="main">
+            <div class="left">
+                <ul>
+                    <li class="mainlist" @click="playmusic(item.id)" v-for="(item,index) in musiclist">
+                        <i>{{index+1}}.</i>
+                        <img src="./images/bofang.png" alt="">
+                        <p>{{item.name}}
+                        </p>
+                        <img v-if="item.mvid!=0" @click.stop="playMV(item.mvid)" src="./images/shipin.png" alt="">
+                    </li>
+
+                </ul>
+            </div>
+            <div class="center"><img class="changpian" src="./images/changpian.png" alt=""><img
+                    :class="{play:isPlaying}" :src="pic" alt="">
+            </div>
+            <div class="right">
+                <h1>热门留言 <i>{{"("+total+")"}}</i>
+                </h1>
+                <ul>
+                    <li v-for="item in hotComments" class="comment">
+                        <img :src="item.user.avatarUrl" alt="">
+                        <h5>{{item.user.nickname}}</h5>{{item.content}}
+                        <p @click="dianzan" :class="[liked?'dianzan':'buzan']"> {{item.likedCount}}</p>
+                </ul>
+            </div>
+        </div>
+
+        <div class="bofang">
+            <img src="./images/shouqi.png" @click="bofang=!bofang"></img>
+            <audio v-show="bofang" ref="audio" @play="play" @pause="pause" :src="url" controls="true" loop="loop"
+                autoplay="true" class="audio"></audio>
+        </div>
+        <div v-show="isShow" class="mv"><video controls="controls" :src="mvurl"></video>
+            <div class="mask" @click="hide"></div>
+        </div>
+
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+<script src="./index.js"></script>
+
+</html>
